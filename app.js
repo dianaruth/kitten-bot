@@ -17,7 +17,7 @@ client.on('message', message => {
   const re = /\?givekittento\s<@\d+>/;
   if (matchExact(re, message.content)) {
     console.log(message.author);
-    const url = `https://api.giphy.com/v1/gifs/random?api_key=${config.giphy}&tag=kitten&rating=G`;
+    const url = `https://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_TOKEN}&tag=kitten&rating=G`;
     fetch(url)
     .then(function(response) {
       return response.json();
@@ -41,4 +41,4 @@ client.on('message', message => {
   }
 });
 
-client.login(config.discord);
+client.login(process.env.DISCORD_TOKEN);
