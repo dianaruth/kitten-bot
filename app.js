@@ -13,7 +13,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  const re = /\?givekittento\s<@\d+>/;
+  const re = /givekittento\s<@\d+>/;
   if (matchExact(re, message.content)) {
     console.log(message.author);
     const url = `https://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_TOKEN}&tag=kitten&rating=G`;
@@ -30,7 +30,7 @@ client.on('message', message => {
     .catch(function(err) {
       console.log(err);
     });
-  } else if (message.content === '?help') {
+  } else if (message.content === 'kitten-bot help') {
     message.channel.send({
       embed: {
         title: 'kitten-bot help',
